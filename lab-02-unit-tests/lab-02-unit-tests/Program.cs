@@ -52,7 +52,9 @@ namespace lab_02_unit_tests
                             Withdraw(withdrawal);
                             return true;
                         case "3":
-                            Deposit();
+                            Console.WriteLine("Enter the amount you would like to deposit.");
+                            string deposits = Console.ReadLine();
+                            Deposit(deposits);
                             return true;
                         case "4":
                             return false;
@@ -63,6 +65,12 @@ namespace lab_02_unit_tests
                             return true;
                     }
                 }
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("You did not enter a valid amount. Please try again.");
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
             }
             catch (Exception e)
             {
@@ -125,9 +133,31 @@ namespace lab_02_unit_tests
             }
         }
 
-        static void Deposit()
+        /// <summary>
+        /// 
+        /// </summary>
+        static void Deposit(string deposits)
         {
-            Console.WriteLine();
+            try
+            {
+                decimal depositAmount = decimal.Parse(deposits);
+                if (depositAmount <= 0)
+                {
+                    Console.WriteLine("The amount you entered is not a valid amount.");
+                    Console.WriteLine("The deposit amount needs to be $1 or more.");
+                    Console.ReadLine();
+                }
+                if (depositAmount > 0)
+                {
+                    Console.WriteLine("You have successfully deposited.");
+                    currentBalance += depositAmount;
+                    Console.ReadLine();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
