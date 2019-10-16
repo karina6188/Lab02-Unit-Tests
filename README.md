@@ -45,4 +45,7 @@ Application End Result
 
 ## Change Log
 
-1.1: 
+1.1: Set up the program and added an unit testing. - 2019 Oct 16
+1.2: Completed Main and View Balance methods. - 2019 Oct 16
+1.3: Debugged and added catch clauses to handle exceptions to Main and View Balance methods.- 2019 Oct 16
+1.4: 

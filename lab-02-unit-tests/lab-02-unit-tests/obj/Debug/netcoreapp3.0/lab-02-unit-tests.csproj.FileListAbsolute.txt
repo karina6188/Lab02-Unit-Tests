@@ -1,0 +1,11 @@
+C:\Users\karin\codefellows\401\Lab02-Unit-Tests\lab-02-unit-tests\lab-02-unit-tests\bin\Debug\netcoreapp3.0\lab-02-unit-tests.exe
+C:\Users\karin\codefellows\401\Lab02-Unit-Tests\lab-02-unit-tests\lab-02-unit-tests\bin\Debug\netcoreapp3.0\lab-02-unit-tests.deps.json
+C:\Users\karin\codefellows\401\Lab02-Unit-Tests\lab-02-unit-tests\lab-02-unit-tests\bin\Debug\netcoreapp3.0\lab-02-unit-tests.runtimeconfig.json
+C:\Users\karin\codefellows\401\Lab02-Unit-Tests\lab-02-unit-tests\lab-02-unit-tests\bin\Debug\netcoreapp3.0\lab-02-unit-tests.runtimeconfig.dev.json
+C:\Users\karin\codefellows\401\Lab02-Unit-Tests\lab-02-unit-tests\lab-02-unit-tests\bin\Debug\netcoreapp3.0\lab-02-unit-tests.dll
+C:\Users\karin\codefellows\401\Lab02-Unit-Tests\lab-02-unit-tests\lab-02-unit-tests\bin\Debug\netcoreapp3.0\lab-02-unit-tests.pdb
+C:\Users\karin\codefellows\401\Lab02-Unit-Tests\lab-02-unit-tests\lab-02-unit-tests\obj\Debug\netcoreapp3.0\lab-02-unit-tests.csprojAssemblyReference.cache
+C:\Users\karin\codefellows\401\Lab02-Unit-Tests\lab-02-unit-tests\lab-02-unit-tests\obj\Debug\netcoreapp3.0\lab-02-unit-tests.AssemblyInfoInputs.cache
+C:\Users\karin\codefellows\401\Lab02-Unit-Tests\lab-02-unit-tests\lab-02-unit-tests\obj\Debug\netcoreapp3.0\lab-02-unit-tests.AssemblyInfo.cs
+C:\Users\karin\codefellows\401\Lab02-Unit-Tests\lab-02-unit-tests\lab-02-unit-tests\obj\Debug\netcoreapp3.0\lab-02-unit-tests.dll
+C:\Users\karin\codefellows\401\Lab02-Unit-Tests\lab-02-unit-tests\lab-02-unit-tests\obj\Debug\netcoreapp3.0\lab-02-unit-tests.pdb
