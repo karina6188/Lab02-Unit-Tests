@@ -4,6 +4,11 @@ namespace lab_02_unit_tests
 {
     public class Program
     {
+        /// <summary>
+        /// Set up the main menu and calls methods according to the user's selection.
+        /// This method catches exceptions that are not handled by other methods.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             try
@@ -14,6 +19,7 @@ namespace lab_02_unit_tests
                     ATM = StartATM();
                 }
 
+                
                 static bool StartATM()
                 {
                     Console.Clear();
@@ -70,20 +76,46 @@ namespace lab_02_unit_tests
             }
         }
 
+        /// <summary>
+        /// Set the current balance to be a global variable so methods can access the value.
+        /// </summary>
         public static decimal currentBalance = 12000;
 
+        /// <summary>
+        /// The method reads the value of current balance and show it in the console window.
+        /// </summary>
         static void ViewBalance()
         {
             Console.WriteLine($"You current balance is {currentBalance}");
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Withdraw method takes in the user input of the amount the user wants to withdraw in a string type.
+        /// The amount is then parsed from string to decimal type.
+        /// If the amount the user enters is not numbers, an exception is catched.
+        /// This method checks if the withdraw amount is equal to or less than the current balance.
+        /// The user can only withdraw the money if the account has sufficient balance.
+        /// The current balance is then subtracted by the withdraw amount.
+        /// </summary>
+        /// <param name="withdrawal"></param>
         static void Withdraw(string withdrawal)
         {
             try
             {
                 decimal withdrawAmount = decimal.Parse(withdrawal);
-                Console.WriteLine();
+                if (withdrawAmount > currentBalance)
+                {
+                    Console.WriteLine("You do not have sufficient balance to withdraw.");
+                    Console.WriteLine("Please try again.");
+                    Console.ReadLine();
+                }
+                if (withdrawAmount <= currentBalance)
+                { 
+                    currentBalance -= withdrawAmount;
+                    Console.WriteLine("You have successfully withdrawed.");
+                    Console.ReadLine();
+                }
             }
             catch (FormatException e)
             {
