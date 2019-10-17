@@ -1,7 +1,7 @@
 # Lab02-Unit-Tests
 
 ## About This Program
-ATM Bank
+Sun Bank
 
 Author: Karina Chen
 
@@ -28,20 +28,26 @@ Open the program using Visual Studio and click "Start" button to run this progra
 
 ## Visuals
 
-![Alt execution capture](/)
-
 Application Start
 
-![Alt execution capture](/)
+![Alt execution capture](/captures/app_start.JPG)
 
 
-Using the Application
+Using the Application - View Balance
 
-![Alt execution capture](/)
+![Alt execution capture](/captures/app_option1.JPG)
 
-Application End Result
+Using the Application - Withdraw Money
 
-![Alt execution capture](/)
+![Alt execution capture](/captures/app_option2.JPG)
+
+Using the Application - Make Deposit
+
+![Alt execution capture](/captures/app_option3.JPG)
+
+Application End - Signed Out from ATM
+
+![Alt execution capture](/captures/app_option4.JPG)
 
 ## Change Log
 
@@ -51,4 +57,5 @@ Application End Result
 1.4: Created Withdraw method that the user can only withdraw an amount that is equal or less than the account's current balance. - 2019 Oct 16
 1.5: Created Deposit method that the user can only deposit an amount that is greater than zero. - 2019 Oct 16
 1.6: Refactor methods to run unit testing. - 2019 Oct 16
-1.7: 
+1.7: Added unit testing to test Withdraw and Deposit methods. - 2019 Oct 16
+1.8: Debugged and passed all the tests. The program is completed. - 2019 Oct 16

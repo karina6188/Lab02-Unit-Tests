@@ -68,7 +68,6 @@ namespace lab_02_unit_tests
                         }
                         catch (Exception)
                         {
-                            Console.WriteLine("YOU ARE HERE");
                             Console.ReadLine();
                         }
                         return true;
@@ -76,7 +75,16 @@ namespace lab_02_unit_tests
                         Console.WriteLine("Enter the amount you would like to deposit.");
                         string deposits = Console.ReadLine();
                         decimal depositAmount = decimal.Parse(deposits);
-                        Deposit(depositAmount);
+                        try
+                        {
+                            Deposit(depositAmount);
+                            Console.WriteLine($"Your current balance {currentBalance}");
+                            Console.ReadLine();
+                        }
+                        catch
+                        {
+                            Console.ReadLine();
+                        }
                         return true;
                     case "4":
                         Console.WriteLine("You have successfully signed out.");
@@ -84,7 +92,7 @@ namespace lab_02_unit_tests
                         Console.ReadLine();
                         return false;
                     default:
-                        Console.WriteLine("Your selection is not valid.");
+                        Console.WriteLine("Your selection is invalid.");
                         Console.WriteLine("Please select again from the available transactions.");
                         Console.ReadLine();
                         return true;
@@ -127,15 +135,18 @@ namespace lab_02_unit_tests
             if (withdrawal < 0)
             {
                 Console.WriteLine("You entered a negative amount. Please try again.");
+                return currentBalance;
                 throw new Exception();
             }
             else if (withdrawal > currentBalance)
             {
                 Console.WriteLine("You do not have sufficient balance to withdraw. Please try again.");
+                return currentBalance;
                 throw new Exception();
             }
             else
             {
+                Console.WriteLine("You have successfully withdrawed.");
                 currentBalance -= withdrawal;
                 return currentBalance;
             }
@@ -152,12 +163,13 @@ namespace lab_02_unit_tests
             {
                 Console.WriteLine("You have successfully deposited.");
                 currentBalance += deposits;
-                Console.ReadLine();
                 return currentBalance;
             }
             else
             {
-                throw new Exception("You did not enter a valid amount. Please try again");
+                Console.WriteLine("You entered an invalid amount. Please try again.");
+                return currentBalance;
+                throw new Exception();
             }
         }
 
