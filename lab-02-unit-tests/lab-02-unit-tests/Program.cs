@@ -11,72 +11,91 @@ namespace lab_02_unit_tests
         /// the user is taken back to the main menu until the user chooses to close the program.
         /// </summary>
         /// <param name="args"></param>
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            bool ATM = true;
-            while (ATM)
+            try
             {
-
-                try
+                bool ATM = true;
+                while (ATM)
                 {
                     ATM = StartATM();
-                    static bool StartATM()
-                    {
-                        Console.Clear();
-                        Console.WriteLine("      ,gg,                               ,ggggggggggg,                                       ");
-                        Console.WriteLine("     i8^^8i                             dP^^^88^^^^^^Y8,                           ,dPYb,    ");
-                        Console.WriteLine("     `8,,8'                             Yb,  88      `8b                           IP'`Yb    ");
-                        Console.WriteLine("      `88'                               ``  88,      8P                           I8  8I    ");
-                        Console.WriteLine("      dP`8,                                  88aaaad8P^                            I8  8bgg, ");
-                        Console.WriteLine("     dP' `8a  gg      gg   ,ggg,,ggg,        88^^^^Y8ba    ,gggg,gg   ,ggg,,ggg,   I8 dP^ ^8 ");
-                        Console.WriteLine("    dP'   `Yb I8      8I  ,8^ `8P` ^8,       88      `8b  dP^  ^Y8I  ,8^ ^8P^ ^8,  I8d8bggP^ ");
-                        Console.WriteLine("_ ,dP'     I8 I8,    ,8I  I8   8I   8I       88      ,8P i8'    ,8I  I8   8I   8I  I8P' ^Yb, ");
-                        Console.WriteLine(" 888,,____,dP,d8b,  ,d8b,,dP   8I   Yb,      88_____,d8',d8,   ,d8b,,dP   8I   Yb,,d8    `Yb,");
-                        Console.WriteLine("a8P^Y88888P^ 8P'^Y88P^`Y88P'   8I   `Y8     88888888P^  P^Y8888P^`Y88P'   8I   `Y888P      Y8");
-                        Console.WriteLine("                                                                                             ");
-
-                        Console.WriteLine("Select your transaction.");
-                        Console.WriteLine("1) View Current Balance");
-                        Console.WriteLine("2) Withdraw Money");
-                        Console.WriteLine("3) Make Deposits");
-                        Console.WriteLine("4) Sign Out");
-                        string service = Console.ReadLine();
-                        switch (service)
-                        {
-                            case "1":
-                                ViewBalance();
-                                return true;
-                            case "2":
-                                Console.WriteLine("Enter the amount you would like to withdraw.");
-                                string withdrawal = Console.ReadLine();
-                                Withdraw(withdrawal);
-                                return true;
-                            case "3":
-                                Console.WriteLine("Enter the amount you would like to deposit.");
-                                string deposits = Console.ReadLine();
-                                Deposit(deposits);
-                                return true;
-                            case "4":
-                                Console.WriteLine("You have successfully signed out.");
-                                Console.WriteLine("Thank you for using the ATM services.");
-                                Console.ReadLine();
-                                return false;
-                            default:
-                                Console.WriteLine("Your selection is not valid.");
-                                Console.WriteLine("Please select again from the available transactions.");
-                                Console.ReadLine();
-                                return true;
-                        }
-                    }
-
                 }
-                catch (Exception e)
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+            }
+        }
+
+        public static bool StartATM()
+        {
+            Console.Clear();
+            Console.WriteLine("      ,gg,                               ,ggggggggggg,                                       ");
+            Console.WriteLine("     i8^^8i                             dP^^^88^^^^^^Y8,                           ,dPYb,    ");
+            Console.WriteLine("     `8,,8'                             Yb,  88      `8b                           IP'`Yb    ");
+            Console.WriteLine("      `88'                               ``  88,      8P                           I8  8I    ");
+            Console.WriteLine("      dP`8,                                  88aaaad8P^                            I8  8bgg, ");
+            Console.WriteLine("     dP' `8a  gg      gg   ,ggg,,ggg,        88^^^^Y8ba    ,gggg,gg   ,ggg,,ggg,   I8 dP^ ^8 ");
+            Console.WriteLine("    dP'   `Yb I8      8I  ,8^ `8P` ^8,       88      `8b  dP^  ^Y8I  ,8^ ^8P^ ^8,  I8d8bggP^ ");
+            Console.WriteLine("_ ,dP'     I8 I8,    ,8I  I8   8I   8I       88      ,8P i8'    ,8I  I8   8I   8I  I8P' ^Yb, ");
+            Console.WriteLine(" 888,,____,dP,d8b,  ,d8b,,dP   8I   Yb,      88_____,d8',d8,   ,d8b,,dP   8I   Yb,,d8    `Yb,");
+            Console.WriteLine("a8P^Y88888P^ 8P'^Y88P^`Y88P'   8I   `Y8     88888888P^  P^Y8888P^`Y88P'   8I   `Y888P      Y8");
+            Console.WriteLine("                                                                                             ");
+
+            Console.WriteLine("Select your transaction.");
+            Console.WriteLine("1) View Current Balance");
+            Console.WriteLine("2) Withdraw Money");
+            Console.WriteLine("3) Make Deposits");
+            Console.WriteLine("4) Sign Out");
+            string service = Console.ReadLine();
+            try
+            {
+                switch (service)
                 {
-                    Console.WriteLine("There is something wrong with the ATM processing.");
-                    Console.WriteLine(e.Message);
-                    Console.ReadLine();
+                    case "1":
+                        ViewBalance();
+                        return true;
+                    case "2":
+                        Console.WriteLine("Enter the amount you would like to withdraw.");
+                        string withdrawal = Console.ReadLine();
+                        decimal withdrawAmount = decimal.Parse(withdrawal);
+                        try
+                        {
+                            Withdraw(withdrawAmount);
+                            Console.WriteLine($"Your current balance {currentBalance}");
+                            Console.ReadLine();
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("YOU ARE HERE");
+                            Console.ReadLine();
+                        }
+                        return true;
+                    case "3":
+                        Console.WriteLine("Enter the amount you would like to deposit.");
+                        string deposits = Console.ReadLine();
+                        decimal depositAmount = decimal.Parse(deposits);
+                        Deposit(depositAmount);
+                        return true;
+                    case "4":
+                        Console.WriteLine("You have successfully signed out.");
+                        Console.WriteLine("Thank you for using the ATM services.");
+                        Console.ReadLine();
+                        return false;
+                    default:
+                        Console.WriteLine("Your selection is not valid.");
+                        Console.WriteLine("Please select again from the available transactions.");
+                        Console.ReadLine();
+                        return true;
                 }
-
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("That is not a valid entry.");
+                Console.WriteLine(e.Message);
+                Console.ReadLine();
+                return true;
             }
         }
 
@@ -103,49 +122,36 @@ namespace lab_02_unit_tests
         /// The current balance is then subtracted by the withdraw amount.
         /// </summary>
         /// <param name="withdrawal"></param>
-        public static decimal Withdraw(string withdrawal)
+        public static decimal Withdraw(decimal withdrawal)
         {
-            decimal withdrawAmount = decimal.Parse(withdrawal);
-            if (withdrawAmount <= currentBalance)
+            if (withdrawal < 0)
             {
-                currentBalance -= withdrawAmount;
-                Console.WriteLine("You have successfully withdrawed.");
-                Console.ReadLine();
-                return currentBalance;
+                Console.WriteLine("You entered a negative amount. Please try again.");
+                throw new Exception();
             }
-            else if (withdrawAmount > currentBalance)
+            else if (withdrawal > currentBalance)
             {
-                Console.WriteLine("You do not have sufficient balance to withdraw.");
-                Console.WriteLine("Please try again.");
-                Console.ReadLine();
-                return currentBalance;
+                Console.WriteLine("You do not have sufficient balance to withdraw. Please try again.");
+                throw new Exception();
             }
             else
             {
-                throw new Exception("You did not enter a valid amount. Please try again");
+                currentBalance -= withdrawal;
+                return currentBalance;
             }
         }
-
 
         /// <summary>
         /// Deposit methods allows the user to deposit an amount that is in a form of decimal type.
         /// The amount of deposit needs to be greater than 0.
         /// If the deposit amount is not a decimal type or is less than 0, an exception is thrown to the lower callstack. 
         /// </summary>
-        public static decimal Deposit(string deposits)
+        public static decimal Deposit(decimal deposits)
         {
-            decimal depositAmount = decimal.Parse(deposits);
-            if (depositAmount <= 0)
-            {
-                Console.WriteLine("The amount you entered is not a valid amount.");
-                Console.WriteLine("The deposit amount needs to be $1 or more.");
-                Console.ReadLine();
-                return currentBalance;
-            }
-            else if (depositAmount > 0)
+            if (deposits > 0)
             {
                 Console.WriteLine("You have successfully deposited.");
-                currentBalance += depositAmount;
+                currentBalance += deposits;
                 Console.ReadLine();
                 return currentBalance;
             }
