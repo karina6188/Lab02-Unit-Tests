@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "lab-02-unit-tests/1.0.0": {
+        "runtime": {
+          "lab-02-unit-tests.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "lab-02-unit-tests/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
